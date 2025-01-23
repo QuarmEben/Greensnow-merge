@@ -32,4 +32,6 @@ export const images = {
     logowithcaption: require("./logowithcaption.png"),
     logowithoutcaption: require("./logowithoutcaption.png"),
     greenstar: require("./greenstar_icon.png"),
+    greenapproval: require("./greencheck_icon.png"),
+    shoe: require("./shoe.png"),
 }

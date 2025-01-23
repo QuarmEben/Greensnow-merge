@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image, Text } from "react-native";
 
 import tw from "twrnc";
-import UserHeader  from "../components/UserHeader";
+import UserHeader  from "./components/UserHeader";
 import { images } from "@/assets/images";
 
 const ShiftsNoPosts: React.FC = () => {

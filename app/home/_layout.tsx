@@ -14,7 +14,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
@@ -30,8 +30,11 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="HomeBeingVerified" options={{ headerShown: false }} />
+        <Stack.Screen name="HomeEmployerNonePostedShifts" options={{ headerShown: false }} />
+        <Stack.Screen name="HomeEmployerNoneShiftsTaken" options={{ headerShown: false }} />
+        <Stack.Screen name="HomeNoPost" options={{ headerShown: false }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

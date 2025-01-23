@@ -2,9 +2,9 @@ import React from "react";
 import { View, Image, Text, ScrollView } from "react-native";
 
 import tw from "twrnc"
-import  UserHeader  from "../components/UserHeader";
-import  JobCard  from "../components/JobCard";
-import { images } from "@/assets/images";
+import  UserHeader  from "./components/UserHeader";
+import  JobCard  from "./components/JobCard";
+import { images } from "./../../assets/images";
 
 const History: React.FC = () => {
   return (
