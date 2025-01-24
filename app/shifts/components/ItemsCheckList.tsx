@@ -38,7 +38,7 @@ const CardItem: React.FC<RequiredItemsProps> = ({ imageUrl, title, subtitle, des
 
   return (
     
-    <View style={tw`flex flex-col px-2.5 items-center pt-px mt-1 pb-8 rounded-xl border ${borderColor} border-solid`}>
+    <View style={tw`flex flex-col px-2.5 items-center pt-px mt-1 pb-8 w-[112px] h-[152px] rounded-xl border ${borderColor} border-solid`}>
         <TouchableOpacity onPress={() => setIsSelected(!isSelected) }>
         {isSelectable ? <Image
         source={radioIcon}
@@ -46,7 +46,7 @@ const CardItem: React.FC<RequiredItemsProps> = ({ imageUrl, title, subtitle, des
         /> : <View></View>}
         <Image
         source={imageUrl}
-        style={tw``}
+        style={tw`w-[97px] h-[97px]`}
         />
         <Text style={tw`font-semibold text-sm text-center`}>{title}</Text>
         </TouchableOpacity>

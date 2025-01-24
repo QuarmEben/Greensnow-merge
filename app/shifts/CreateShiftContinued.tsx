@@ -5,6 +5,7 @@ import tw from 'twrnc';
 import { ActionButton } from './components/ActionButton';
 import { images } from '@/assets/images';
 import { itemListProps } from './types';
+import { router } from 'expo-router';
 
 type CreateShiftScreenProps = {};
 
@@ -70,12 +71,12 @@ const CreateShiftContinuedScreen: React.FC<CreateShiftScreenProps> = () => {
   ]
 
   return (
-    <View style={tw`flex-1 p-6 bg-gray-100`}>
+    <View style={tw`flex-1 p-2 bg-gray-100`}>
         <Text style={tw`text-2xl font-bold mb-2`}>Create A New Shift</Text>
       <Text style={tw`text-gray-500 mb-6`}>
         Discover millions of gigs and get in touch with gig hirers as seamless as it comes
       </Text>
-    <ScrollView>
+    <ScrollView contentContainerStyle={tw`p-2`}>
       
 
       {/* Location Input */}
@@ -118,7 +119,7 @@ const CreateShiftContinuedScreen: React.FC<CreateShiftScreenProps> = () => {
       {/* Proceed Button */}
       <ActionButton
       className='mt-1'
-      onPress={()=>{}}
+      onPress={() => router.push("/shifts/ShiftDetailsPreview")}
       label='Proceed'
       isEnabled={true}
      />

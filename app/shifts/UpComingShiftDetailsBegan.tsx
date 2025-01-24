@@ -13,16 +13,17 @@ import { Details } from './components/ShiftDetailsDescription';
 import { CountdownTimer } from './components/CountdownTimer';
 import { ActionButton } from './components/ActionButton';
 import { images } from '@/assets/images';
+import { router } from 'expo-router';
 
-export const UpComingShiftDetailsBegan: React.FC = () => {
+const UpComingShiftDetailsBegan: React.FC = () => {
 
   const [isShiftDurationUpModal, setIsShiftDurationUpModal] = useState(false);
   const [isShiftCompletedModal, setIsShiftCompletedModal] = useState(false);
   const [isShiftCompletionVerifiedModal, setisShiftCompletionVerifiedModal] = useState(false);
 
   return (
-    <View style={tw`flex-1 overflow-hidden flex-col px-3.5 pt-4 py-10 pb-9 mx-auto w-full bg-zinc-100 max-w-[480px]`}>
-      <ShiftsHeader />
+    <View style={tw`flex-1 overflow-hidden flex-col p-1 mx-auto w-full bg-zinc-100 max-w-[480px]`}>
+      
       <View style={tw`flex gap-10 self-center w-full`}>
 
       
@@ -89,12 +90,14 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
           <Text style={tw`text-xl text-center font-semibold tracking-tight bg-stone-300 text-zinc-500`}>Complete Shift</Text>
         </View> */}
 
+<View style={tw`self-center`}>
         <ActionButton 
         label='Complete Shift'
         onPress={() => setIsShiftDurationUpModal(true)}
         isEnabled={true}
         className=''
         />
+        </View>
       
 
       </ScrollView>
@@ -109,7 +112,7 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
         transparent={true}
       >
         <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-30`}>
-          <View style={tw`flex flex-col items-center px-8 py-5 w-full bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
+          <View style={tw`flex flex-col items-center px-8 py-5 w-[322px] bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
           <TouchableOpacity 
       onPress={() => setIsShiftDurationUpModal(false) }
       style={tw`self-end w-3.5 aspect-[1.08]`}
@@ -137,7 +140,7 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
             
             
             
-            
+            <View style={tw`self-center`}>
             <ActionButton 
               label="Complete"
               isEnabled={true}
@@ -146,8 +149,9 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
                 setIsShiftCompletedModal(true);
               }
               }
-              className='py-2.5 mt-7 max-w-full rounded-md'
+              className='py-2.5 mt-7 max-w-full rounded-md w-[193px] px-1'
             />
+            </View>
           </View>
       </View>
     </Modal>
@@ -163,8 +167,8 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
         presentationStyle='pageSheet'
         transparent={true}
       >
-        <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-60`}>
-          <View style={tw`flex flex-col items-center px-8 py-5 w-full bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
+        <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-40`}>
+          <View style={tw`flex flex-col items-center px-8 py-5 w-[322px] bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
           <TouchableOpacity 
       onPress={() => setIsShiftCompletedModal(false) }
       style={tw`self-end w-3.5 aspect-[1.08]`}
@@ -193,16 +197,19 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
               </Text>
             </View>
 
-
+<View style={tw`self-center`}>
             <ActionButton 
               label="Rate Shift"
               isEnabled={true}
-              onPress={() => 
-                setisShiftCompletionVerifiedModal(false)
+              onPress={() => {
+                setisShiftCompletionVerifiedModal(false);
+                router.push("/shifts/RateCompletedShift")
+              }
               
               }
-              className='py-2.5 mt-30 rounded-md w-[240px] '
+              className='py-2.5 mt-30 rounded-md w-[193px] px-1'
             />
+            </View>
             
           </View>
       </View>
@@ -213,3 +220,5 @@ export const UpComingShiftDetailsBegan: React.FC = () => {
     </View>
   );
 };
+
+export default UpComingShiftDetailsBegan;

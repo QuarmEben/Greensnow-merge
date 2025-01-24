@@ -6,11 +6,8 @@ import { images } from "@/assets/images";
 
 const Home: React.FC = () => {
   return (
-    <View style={tw`flex-1 overflow-hidden flex-col items-center px-3 pt-10 pb-6 mx-auto w-full text-center bg-zinc-100 max-w-[480px]`}>
-      <UserHeader 
-      avatarUrl={images.avatarnotverified}
-      username="Jacob Construction"
-      />
+    <View style={tw`flex-1 overflow-hidden flex-col items-center  w-full text-center bg-zinc-100 max-w-[480px]`}>
+    
       <Image
         source={images.clipboard}
         style = {tw`object-contain mt-20 max-w-full aspect-[1.03] w-[237px] h-[231px]`}

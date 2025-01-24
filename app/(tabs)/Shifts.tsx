@@ -7,11 +7,7 @@ import { images } from "@/assets/images";
 
 const ShiftsNoPosts: React.FC = () => {
   return (
-    <View style={tw`flex-1 overflow-hidden flex-col items-center px-3 pt-10 pb-6 mx-auto w-full text-center bg-zinc-100 max-w-[480px]`}>
-      <UserHeader 
-      avatarUrl={images.avatarverified}
-      username="Angela"
-      />
+    <View style={tw`flex-1 overflow-hidden flex-col items-center w-full text-center bg-zinc-100 max-w-[480px]`}>
       <View style={tw`flex-1 flex-row items-center max-w-[480px] w-full`}>
         <View style={tw`flex-col items-center text-center w-full max-w-[480px]`}>
           <Image

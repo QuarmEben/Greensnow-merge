@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Image, TouchableOpacity, ScrollView, Modal } from "react-native";
 import { LocationDisplay } from "./components/LocationDisplay";
 import { MetricDisplay } from "./components/MetricsDisplay";
 import tw from 'twrnc';
@@ -11,16 +11,19 @@ import { Details } from "./components/ShiftDetailsDescription";
 import { RequiredItems } from "./components/ItemsCheckList";
 import { ActionButton } from "./components/ActionButton";
 import { images } from "@/assets/images";
+import { router } from "expo-router";
 
-export function ShiftDetailsPreview() {
+const ShiftDetailsPreview: React.FC = () => {
+
+  const [isSubmitShiftModal, setisSubmitShiftModal] = useState(false);
+
   return (
-    <View style = {tw`flex-1 overflow-hidden flex-col items-start px-3.5 py-10 mx-auto w-full bg-zinc-100 max-w-[480px]`} className="flex overflow-hidden flex-col items-start px-3.5 py-4 mx-auto w-full bg-zinc-100 max-w-[480px]">
-      
-      <ShiftsHeader />
+    <View style = {tw`flex-1 overflow-hidden flex-col p-1 items-start w-full bg-zinc-100 max-w-[480px]`} className="flex overflow-hidden flex-col items-start px-3.5 py-4 mx-auto w-full bg-zinc-100 max-w-[480px]">
 
-      <View style = {tw`text-2xl font-bold text-center text-stone-900`} className="text-2xl font-bold text-center text-stone-900">
+
+      
         <Text style = {tw`text-2xl font-bold text-center text-stone-900`}>Shift Details</Text>
-      </View>
+      
       <ScrollView>
       <View style = {tw`flex flex-col items-center self-stretch mt-2.5`} className="flex flex-col items-center self-stretch mt-2.5">
         
@@ -50,10 +53,6 @@ export function ShiftDetailsPreview() {
           mapImageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/bd168c1c64b133f2d4d9e3c84c1312dffacfbdccf2b8317ffcd8ad231338fdbc?placeholderIfAbsent=true&apiKey=40e5f984174e460295df60a5034c4fb5"
         /> 
 
-        {/* Map View */}
-        {/* <View style={tw`flex bg-black w-`}> 
-        <Map />
-        </View> */}
 
         <MetricDisplay
           leftValue="12:00AM"
@@ -94,12 +93,66 @@ export function ShiftDetailsPreview() {
             className="py-3"
             isEnabled = {true}
             label="Submit For Review"
-            onPress={()=>{}}
+            onPress={()=> setisSubmitShiftModal(true)}
              
         />
         </View>
       </View>
       </ScrollView>
+
+
+{/* Begin shift modal */}
+<Modal 
+        visible={isSubmitShiftModal} 
+        onRequestClose={() => setisSubmitShiftModal(false)}
+        animationType='fade'
+        presentationStyle='pageSheet'
+        transparent={true}
+      >
+        <View style={tw`flex self-center rounded-none max-w-[322px] mt-35 overflow-hidden`}>
+          <View style={tw`flex flex-col items-center px-8 py-8 w-[322px] bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
+          <TouchableOpacity 
+      onPress={() => setisSubmitShiftModal(false) }
+      style={tw`self-end w-3.5 aspect-[1.08]`}>
+            <Image
+              source={images.closeicon}
+              style={tw`object-contain self-end w-3.5 aspect-[1.08]`}
+              accessibilityLabel="Close modal"
+            />
+            </TouchableOpacity>
+            
+            <View style={tw`mt-8`}>
+              <Text style={tw`text-xl text-center font-extrabold tracking-tight leading-6 text-zinc-800`}>Your Shift Will Be Reviewed{"\n"}And Posted Once It Has{"\n"}Been Approved</Text>
+            </View>
+            
+            <View style={tw`text-sm tracking-tight text-center mb-3`}>
+              <Text style={tw`mt-5 text-sm tracking-tight text-center text-zinc-600`}>Proceed to submission?</Text>
+            </View>
+            
+            
+              <Text style={tw`text-sm tracking-tight text-center text-zinc-600`}>
+              You will be notified once your shift has been approved.
+              </Text>
+        
+            
+            <View style={tw`self-center`}>
+            <ActionButton 
+              label="Begin"
+              onPress={() => { 
+                setisSubmitShiftModal(false);
+                router.push("/shifts/ShiftsCompleted")
+              }}
+              isEnabled={true}
+              className='px-16 py-2.5 mt-7 max-w-full rounded-md w-[193px]'
+            />
+            </View>
+          </View>
+      </View>
+    </Modal>
+
+
     </View>
   );
 }
+
+export default ShiftDetailsPreview;

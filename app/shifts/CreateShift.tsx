@@ -4,6 +4,7 @@ import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import tw from 'twrnc';
 import { ActionButton } from './components/ActionButton';
+import { router } from 'expo-router';
 
 type CreateShiftScreenProps = {};
 
@@ -28,15 +29,14 @@ const CreateShiftScreen: React.FC<CreateShiftScreenProps> = () => {
   };
 
   return (
-    <View style={tw`flex-1 bg-gray-100 p-6`}>
-<View style={tw``}>
+    <View style={tw`flex-1 bg-zinc-100 p-2 -full`}>
 <Text style={tw`text-2xl font-bold mb-2`}>Create A New Shift</Text>
       <Text style={tw`text-gray-500 mb-6`}>
         Discover millions of gigs and get in touch with gig hirers as seamless as it comes
       </Text>
-      </View>
+    
 
-<ScrollView contentContainerStyle={tw`flex p-2 bg-gray-100`}>
+<ScrollView contentContainerStyle={tw`p-2.5`}>
       
 
       {/* Shift Type Picker */}
@@ -125,7 +125,7 @@ const CreateShiftScreen: React.FC<CreateShiftScreenProps> = () => {
       {/* Proceed Button */}
      <ActionButton
       className='mt-1'
-      onPress={()=>{}}
+      onPress={() => router.push("/shifts/CreateShiftContinued")}
       label='Proceed'
       isEnabled={true}
      />

@@ -1,31 +1,37 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import tw from "twrnc";
+import UserHeader from '../components/UserHeader';
+import { images } from '@/assets/images';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
+    <View style={tw`flex-1 overflow-hidden flex-col px-3 pt-10 pb-6 mx-auto w-full text-center bg-zinc-100 max-w-[480px]`}>
+      <UserHeader 
+        avatarUrl={images.avatarverified}
+        username='Jacob Construction'
+      />
     
+    <View style={tw`flex-1 justify-end bg-white`}>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
+        tabBarStyle: {
+          backgroundColor: '#068A2D',
+          borderRadius: 10
+        },
       }}>
       <Tabs.Screen
         name="Home"
@@ -56,5 +62,7 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+    </View>
+    </View>
   );
 }

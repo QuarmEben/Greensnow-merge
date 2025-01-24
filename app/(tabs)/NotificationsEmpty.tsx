@@ -5,13 +5,9 @@ import UserHeader from "../components/UserHeader";
 import { images } from "@/assets/images";
 
 
-export const NotificationsEmpty: React.FC = () => {
+const NotificationsEmpty: React.FC = () => {
   return (
     <View style={tw`flex-1 overflow-hidden flex-col items-center px-4 pt-10 pb-6 mx-auto w-full text-center bg-zinc-100 max-w-[480px]`}>
-      <UserHeader 
-      avatarUrl={images.avatarverified}
-      username="Jacob Construction"
-      />
       <Image
         // loading="lazy"
         source={images.clipboard}
@@ -23,3 +19,5 @@ export const NotificationsEmpty: React.FC = () => {
     </View>
   );
 };
+
+export default NotificationsEmpty;

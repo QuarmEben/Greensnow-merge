@@ -9,11 +9,8 @@ import { images } from "@/assets/images";
 const History: React.FC = () => {
   return (
     
-    <View style={tw`flex-1 flex-col overflow-hidden flex-col items-center pt-10 px-3.5 mx-auto w-full bg-zinc-100 max-w-[480px]`}>
-       <UserHeader 
-      avatarUrl={images.avatarverified}
-      username="Jacob Construction"
-      />
+    <View style={tw`flex-1 flex-col overflow-hidden flex-col items-center w-full bg-zinc-100`}>
+       
       <View style={tw`flex flex-row gap-5 justify-between w-full text-center max-w-[362px] text-stone-900`}>
         <View style={tw`flex flex-col items-start`}>
          

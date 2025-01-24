@@ -14,13 +14,12 @@ import { ButtonProps, RatingIndicatorProps } from './types';
 import { ActionButton } from './components/ActionButton';
 import { images } from '@/assets/images';
 import { EmployeeDetailsDisplay } from './components/EmployeeDetailsDisplay';
+import { router } from 'expo-router';
 
-export const UpComingShiftDetails: React.FC = () => {
+const UpComingShiftDetails: React.FC = () => {
 
   const [isCancelShiftModal, setisCancelShiftModal] = useState(false);
-  const [isBeginShiftModal, setisBeginShiftModal] = useState(false);
-  const [isAwaitingConfirmationModal, setisAwaitingConfirmationModal] = useState(false);
-
+  
   const ratingData = [
     { icon: images.starred, value: "-10" },
     { icon: images.ratingred, value: "-35" }
@@ -28,14 +27,14 @@ export const UpComingShiftDetails: React.FC = () => {
 
 
   return (
-    <View style={tw`flex-1 overflow-hidden items-center justify-center flex-col px-3.5 pt-4 py-10 pb-9 mx-auto w-full bg-zinc-100 max-w-[480px]`}>
-      <ShiftsHeader />
+    <View style={tw`flex-1 overflow-hidden items-center justify-center flex-col p-1 mx-auto w-full bg-zinc-100 max-w-[480px]`}>
+      
       <View style={tw`flex flex-row gap-10 self-center text-stone-900`}>
 
       
         <View style={tw`flex flex-col w-full items-start`}>
          
-          <View style={tw`self-stretch mt-2.5 text-2xl font-bold`}>
+          <View style={tw`self-stretch text-2xl font-bold`}>
             <Text style={tw`self-stretch mt-2.5 text-2xl font-bold text-start text-stone-900`}>Shift Details</Text>
           </View>
           
@@ -91,7 +90,7 @@ export const UpComingShiftDetails: React.FC = () => {
 
       <TouchableOpacity 
       style={tw`self-center px-16 py-4 mt-10 w-full text-xl font-semibold tracking-tight rounded-xl bg-stone-300 max-w-[327px]`}
-      onPress={() => setisBeginShiftModal(true) }
+      onPress={() => router.push("/shifts/UpComingShiftDetailsBegan") }
       >
         <Text style={tw`text-zinc-500 self-center text-xl font-semibold tracking-tight`}>Begin Shift</Text>
       </TouchableOpacity>
@@ -104,7 +103,7 @@ export const UpComingShiftDetails: React.FC = () => {
       </TouchableOpacity>
       </ScrollView>
 
-      {/* Modalcomponent */}
+      {/* Cancel Shift Modal */}
       <Modal 
         visible={isCancelShiftModal} 
         onRequestClose={() => setisCancelShiftModal(false)}
@@ -113,7 +112,7 @@ export const UpComingShiftDetails: React.FC = () => {
         transparent={true}
       >
         <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-30 `}>
-          <View style={tw`flex flex-col items-center px-8 py-5 w-full bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
+          <View style={tw`flex flex-col items-center px-8 py-5 w-[322px] bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
           <TouchableOpacity 
       onPress={() => setisCancelShiftModal(false) }
       style={tw`self-end w-3.5 aspect-[1.08]`}
@@ -150,106 +149,22 @@ export const UpComingShiftDetails: React.FC = () => {
               ))}
             </View>
             
+            <View style={tw`self-center`}>
             <ActionButton 
               label="Cancel"
-              onPress={() => setisCancelShiftModal(false)}
+              onPress={() => {
+                setisCancelShiftModal(false);
+                router.push("/");
+              }}
               isEnabled={true}
               className='px-16 py-2.5 mt-5 max-w-full text-xl font-semibold tracking-tight text-white whitespace-nowrap bg-rose-600 rounded-md w-[193px]'
             />
+            </View>
           </View>
       </View>
     </Modal>
 
-{/* Begin shift modal */}
-    <Modal 
-        visible={isBeginShiftModal} 
-        onRequestClose={() => setisBeginShiftModal(false)}
-        animationType='fade'
-        presentationStyle='pageSheet'
-        transparent={true}
-      >
-        <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-30`}>
-          <View style={tw`flex flex-col items-center px-8 py-5 w-full bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
-          <TouchableOpacity 
-      onPress={() => setisBeginShiftModal(false) }
-      style={tw`self-end w-3.5 aspect-[1.08]`}
-      >
-            <Image
-              source={images.shoe}
-              style={tw`object-contain self-end w-3.5 aspect-[1.08]`}
-              accessibilityLabel="Close modal"
-            />
-            </TouchableOpacity>
-            
-            <View style={tw`mt-16 text-xl font-extrabold tracking-tight leading-6 text-zinc-800`}>
-              <Text style={tw`text-xl font-extrabold tracking-tight leading-6 text-zinc-800`}>Make sure you at the job site</Text>
-            </View>
-            
-            <View style={tw`text-sm tracking-tight text-center`}>
-              <Text style={tw`mt-5 text-sm tracking-tight text-center text-zinc-600`}>8 hours 00 minutes for shift to end.</Text>
-            </View>
-            
-            <View style={tw`self-start mt-7 text-sm tracking-tight text-center`}>
-              <Text style={tw`text-sm tracking-tight text-center text-zinc-600`}>
-              Once you begin, we will await confirmation from your employer to verify that you are on site and ready to work.
-              </Text>
-            </View>
-            
-            
-            <View style={tw`mt-6 text-xs tracking-tight text-center`}>
-              <Text style={tw`mt-6 text-xs tracking-tight text-center`}>Shift countdown will begin after employer confirms shift start.</Text>
-            </View>
-            
-            <ActionButton 
-              label="Begin"
-              onPress={() => { 
-                setisBeginShiftModal(false);
-                setisAwaitingConfirmationModal(true);
-              }}
-              isEnabled={true}
-              className='px-16 py-2.5 mt-7 max-w-full rounded-md w-[193px]'
-            />
-          </View>
-      </View>
-    </Modal>
 
-    {/* awating shift confirmation modal ----------------------------------------------------------------------------*/}
-    <Modal 
-        visible={isAwaitingConfirmationModal} 
-        onRequestClose={() => setisAwaitingConfirmationModal(false)}
-        animationType='fade'
-        presentationStyle='pageSheet'
-        transparent={true}
-      >
-        <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-50`}>
-          <View style={tw`flex flex-col items-center px-8 py-5 w-full bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
-          <TouchableOpacity 
-      onPress={() => setisAwaitingConfirmationModal(false) }
-      style={tw`self-end w-3.5 aspect-[1.08]`}
-      >
-            <Image
-              source={images.shoe}
-              style={tw`object-contain self-end w-3.5 aspect-[1.08]`}
-              accessibilityLabel="Close modal"
-            />
-            </TouchableOpacity>
-            
-            <View style={tw`mt-16 text-xl font-extrabold tracking-tight leading-6 text-zinc-800`}>
-              <Text style={tw`text-xl font-extrabold tracking-tight leading-6 text-zinc-800`}>Awaiting Confirmation To Begin Your Shift</Text>
-            </View>
-            
-            <View style={tw`text-sm tracking-tight text-center`}>
-              <Text style={tw`mt-5 text-sm tracking-tight text-center text-zinc-600`}>8 hours 00 minutes for shift to end.</Text>
-            </View>
-            
-            
-            <View style={tw`mt-6 text-xs tracking-tight text-center`}>
-              <Text style={tw`mt-6 text-xs tracking-tight text-center`}>Shift countdown will begin after employer confirms shift start.</Text>
-            </View>
-      
-          </View>
-      </View>
-    </Modal>
     </View>
   );
 };
@@ -269,4 +184,6 @@ const RatingIndicator: React.FC<RatingIndicatorProps> = ({ icon, value }) => {
     </View>
   );
 };
+
+export default UpComingShiftDetails;
 

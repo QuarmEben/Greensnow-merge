@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, Modal } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import tw from 'twrnc';
 import { ActionButton } from './components/ActionButton';
 import { images } from '@/assets/images';
+import { router } from 'expo-router';
 
 type RateCompletedShiftScreenProps = {};
 
@@ -14,8 +15,10 @@ const RateCompletedShiftScreen: React.FC<RateCompletedShiftScreenProps> = () => 
   const [additionalInfo, setAdditionalInfo] = useState<string>('');
   const [completionRating, setCompletionRating] = useState<string>('');
 
+  const [isRateCompletedModal, setIsRateCompletedModal] = useState(false);
+
   return (
-    <View style={tw`flex-1 p-6 bg-gray-100 w-full max-w-[480px]`}>
+    <View style={tw`flex-1 p-1 bg-gray-100 w-full max-w-[480px]`}>
         <Text style={tw`text-2xl font-bold mb-2`}>Rate Completed Shift</Text>
       <Text style={tw`text-gray-500 mb-6`}>
         Discover millions of gigs and get in touch with gig hirers as seamless as it comes
@@ -74,7 +77,7 @@ const RateCompletedShiftScreen: React.FC<RateCompletedShiftScreenProps> = () => 
       {/* Proceed Button */}
       <ActionButton
       className='mt-1'
-      onPress={()=>{}}
+      onPress={()=>setIsRateCompletedModal(true)}
       label='Proceed'
       isEnabled={true}
      />
@@ -89,6 +92,65 @@ const RateCompletedShiftScreen: React.FC<RateCompletedShiftScreenProps> = () => 
        <Image source={images.logowithcaption} />
       </View>
     </ScrollView>
+
+
+          {/* Shift Completed modal -----------------------------------------------*/}
+    <Modal 
+        visible={isRateCompletedModal} 
+        onRequestClose={() => setIsRateCompletedModal(false)}
+        animationType='fade'
+        presentationStyle='pageSheet'
+        transparent={true}
+      >
+        <View style={tw`flex flex-col self-center rounded-none max-w-[322px] mt-40`}>
+          <View style={tw`flex flex-col items-center px-8 py-5 w-[322px] bg-white rounded-xl shadow-[0px_2px_4px_rgba(0,0,0,0.25)]`}>
+          <TouchableOpacity 
+      onPress={() => setIsRateCompletedModal(false) }
+      style={tw`self-end w-3.5 aspect-[1.08]`}
+      >
+            <Image
+              source={images.closeicon}
+              style={tw`object-contain self-end w-3.5 aspect-[1.08]`}
+              accessibilityLabel="Close modal"
+            />
+            </TouchableOpacity>
+            
+            <View style={tw`mt-16 text-xl font-extrabold tracking-tight leading-6 text-zinc-800`}>
+              <Text style={tw`text-xl font-extrabold tracking-tight leading-6 text-zinc-800`}>Rating Completed</Text>
+            </View>
+            
+            <View style={tw`self-start mt-7 text-sm tracking-tight text-center`}>
+              <Text style={tw`text-sm tracking-tight text-center text-zinc-600`}>
+              Rating details would be sent to {"\n"}management to access shift and {"\n"}improve your experience.{"\n"}Thank you!
+              </Text>
+            </View>
+            
+            
+            <View style={tw`self-center mt-7 text-sm tracking-tight text-center`}>
+              <Text style={tw`text-sm tracking-tight text-center text-zinc-600`}>
+                Good job!
+              </Text>
+            </View>
+
+<View style={tw`self-center`}>
+            <ActionButton 
+              label="Rate Shift"
+              isEnabled={true}
+              onPress={() => {
+                setIsRateCompletedModal(false);
+                router.push("/(tabs)/Home")
+              }
+              
+              }
+              className='py-2.5 mt-30 rounded-md w-[193px] px-1'
+            />
+            </View>
+            
+          </View>
+      </View>
+    </Modal>
+
+
     </View>
   );
 };

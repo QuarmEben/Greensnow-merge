@@ -6,6 +6,7 @@ import  UserHeader  from "./components/UserHeader";
 import  JobCard  from "./components/JobCard";
 import { images } from "@/assets/images";
 import { ActionButton } from "./components/ActionButton";
+import { router } from "expo-router";
 
 
 
@@ -28,7 +29,7 @@ const ShiftsWithPosts: React.FC = () => {
           className="self-start w-[193px] px-2 py-2 mt-3"
           isEnabled = {true}
           label="Create Shift"
-          onPress={()=>{}}
+          onPress={()=> router.push("/shifts/CreateShift")}
         />
         
         <Text style={tw`text-lg font-bold`}>Posted Shifts</Text>

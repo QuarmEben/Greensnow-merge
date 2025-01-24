@@ -11,11 +11,9 @@ const ShiftPickerDetails: React.FC = () => {
       ];
       
   return (
-    <View style={tw`flex-1 bg-gray-100 p-4`}>
+    <View style={tw`flex-1 bg-gray-100 p-2`}>
       {/* Header */}
-      <TouchableOpacity style={tw`mb-4`}>
-        <Text style={tw`text-gray-500 text-xl`}>←</Text>
-      </TouchableOpacity>
+      
       <Text style={tw`text-2xl font-bold mb-6`}>Shift Picker Details</Text>
 
       {/* Profile Section */}
