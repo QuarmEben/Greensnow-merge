@@ -34,4 +34,5 @@ export const images = {
     greenstar: require("./greenstar_icon.png"),
     greenapproval: require("./greencheck_icon.png"),
     shoe: require("./shoe.png"),
+    userImage: require("./userimage.png")
 }
