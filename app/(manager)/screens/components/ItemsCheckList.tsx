@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Image, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
-import { RequiredItemsListProp, RequiredItemsProps } from "../(tabs)/types";
+import { RequiredItemsListProp, RequiredItemsProps } from "./types";
 import { useState } from "react";
 
 import tw from "twrnc";

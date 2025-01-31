@@ -6,7 +6,7 @@ import { images } from '@/assets/images';
 import { ActionButton } from '../components/ActionButton';
 import { DisplayPersonalInfoProps, EmployerDetailsDisplayProps, verificationData } from './types';
 import { router, useLocalSearchParams } from 'expo-router';
-import { employeeData } from '@/assets/data/Data';
+
 
 const UserApproved = () => {
     

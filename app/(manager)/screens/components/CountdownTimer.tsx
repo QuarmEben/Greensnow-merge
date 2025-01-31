@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text } from "react-native";
-import { CountdownTimerProps } from "../(tabs)/types";
+import { CountdownTimerProps } from "./types";
 import tw from 'twrnc';
 
 export const CountdownTimer: React.FC<CountdownTimerProps> = ({

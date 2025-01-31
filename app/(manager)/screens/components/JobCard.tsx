@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Image, Text } from "react-native";
-import { JobCardProps } from "../(tabs)/types";
-import { JobDetailProps } from "../(tabs)/types";
+import { JobCardProps } from "./types";
+import { JobDetailProps } from "./types";
 
 import tw from "twrnc";
 import { images } from "@/assets/images";

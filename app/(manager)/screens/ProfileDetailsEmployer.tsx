@@ -8,6 +8,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { ShiftDetailsData, UserData } from '@/assets/data/Data';
 import { EmployerDetailsDisplayProps, ShiftDetailsProps, UserDataProps } from './types';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import RatingsMeter from './components/RatingsMeter';
 
 const ViewProfile = () => {
 
@@ -92,12 +93,20 @@ const ViewProfile = () => {
                   <Text>Rating</Text>
                 </View>
                 <View style={tw`flex-row items-center mt-0.5`}>
-                  <FontAwesome name="star" size={20} color="green" />
+                <View style={tw`flex-row items-center mt-0.5`}>
+                  <FontAwesome name="star" size={20} color="gray" />
                   <FontAwesome name="star-o" size={20} color="gray" />
                   <FontAwesome name="star-o" size={20} color="gray" />
                   <FontAwesome name="star-o" size={20} color="gray" />
                   <FontAwesome name="star-o" size={20} color="gray" />
                 </View>
+                <View style={tw`flex absolute`}>
+
+                <RatingsMeter rating={+item.rating} />
+      </View>
+      </View>
+
+                
                 <View style={tw`flex flex-row justify-between w-[87%]`}>
                 <View style={tw`flex flex-row gap-0.5 items-center`}>
                   <Image source={images.ranking} 
@@ -108,7 +117,7 @@ const ViewProfile = () => {
                 <Text style={tw`text-sm text-gray-500 mt-2`}>{item.assurance}/100</Text>
                 </View>
                 <View style={tw`w-[90%] bg-gray-300 rounded-full h-2 mt-1`}>
-                  <View style={tw`bg-green-500 h-2 rounded-full w-[19%]`} />
+                  <View style={tw`bg-green-500 h-2 rounded-full w-[${item.assurance}%]`} />
                 </View>
                 
               </View>

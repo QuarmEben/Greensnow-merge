@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text } from "react-native";
-import { ShiftDetailsDescriptionProps } from "../(tabs)/types";
+import { ShiftDetailsDescriptionProps } from "./types";
 import tw from "twrnc";
 
 export const Details: React.FC<ShiftDetailsDescriptionProps> = ({ description }) => {

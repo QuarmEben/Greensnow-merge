@@ -2,7 +2,7 @@ import { images } from "@/assets/images";
 import * as React from "react";
 import { View, Image, Text } from "react-native";
 import tw from "twrnc";
-import { StatsCounterProps } from "../(tabs)/types";
+import { StatsCounterProps } from "./types";
 
 
 

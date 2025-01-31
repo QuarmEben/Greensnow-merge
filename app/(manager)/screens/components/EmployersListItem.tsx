@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import type { NotificationDetailsProps, UserListItemProps } from '../(tabs)/types';
+import type { NotificationDetailsProps, UserListItemProps } from './types';
 
 import tw from "twrnc";
 import { images } from '@/assets/images';

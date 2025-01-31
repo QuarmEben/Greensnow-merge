@@ -29,7 +29,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+      <Stack initialRouteName='(manager)'>
         <Stack.Screen name="(employees)" options={{ headerShown: false }} />
         <Stack.Screen name="(manager)" options={{ headerShown: false }} />
       </Stack>

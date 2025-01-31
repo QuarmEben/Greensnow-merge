@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
-import { ProfileProps } from '../(tabs)/types';
-import { StatItemProps } from '../(tabs)/types';
+import { ProfileProps } from './types';
+import { StatItemProps } from './types';
 import tw from "twrnc";
 import LanguageSwitcher  from './LanguageSwitcher';
 import { images } from '@/assets/images';

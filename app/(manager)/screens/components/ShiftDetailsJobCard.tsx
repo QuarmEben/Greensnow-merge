@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Image, Text } from "react-native";
-import { ShiftDetailsJobCardProps } from "../(tabs)/types";
+import { ShiftDetailsJobCardProps } from "./types";
 import tw from "twrnc";
 import { images } from "@/assets/images";
 

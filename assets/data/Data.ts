@@ -1,4 +1,4 @@
-import { TotalEarnings } from "@/app/(employees)/components/TotalEarning";
+import { TotalEarnings } from "@/app/(manager)/components/TotalEarning";
 import { images } from "../images";
 
 export const postedShiftsJobCardData = [
@@ -133,7 +133,6 @@ export const TakenShiftsjobCardData = [
 export const NotificationsData = [
     {   
         "id": '1',
-        "shiftId": '1',
         "notificationType" : "shift",
         "iconUrl": images.bag,
         "title": "Someone took the shift",
@@ -141,7 +140,6 @@ export const NotificationsData = [
     },
     {   
         "id": '2',
-        "shiftId": '2',
         "notificationType" : "shift",
         "iconUrl": images.bag,
         "title": "Someone took the shift",
@@ -149,7 +147,6 @@ export const NotificationsData = [
     },
     {   
         "id": '3',
-        "shiftId": '3',
         "notificationType" : "shift",
         "iconUrl": images.bag,
         "title": "Someone took the shift",
@@ -284,9 +281,9 @@ export const UserData = [
         "backgroundCheckStatus": "Pending",
         "approvalStatus": "approved",
         "description": "Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes.",
-        "rating": "5",
-        "assurance": "19",
-        "urlToImage": images.userImage,
+        "rating": "1",
+        "assurance": "10",
+        "urlToImage": images.userimage,
         "imageStatus": "Uploaded",
         "IDCardStatus": "Uploaded",
         "PassportStatus": "Uploaded",
@@ -305,8 +302,8 @@ export const UserData = [
         "approvalStatus": "approved",
         "description": "Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes.",
         "rating": "5",
-        "assurance": "19",
-        "urlToImage": images.userImage,
+        "assurance": "90",
+        "urlToImage": images.userimage,
         "imageStatus": "Uploaded",
         "IDCardStatus": "Uploaded",
         "PassportStatus": "Uploaded",
@@ -324,9 +321,9 @@ export const UserData = [
         "backgroundCheckStatus": "Pending",
         "approvalStatus": "pending",
         "description": "Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes.",
-        "rating": "5",
+        "rating": "3",
         "assurance": "19",
-        "urlToImage": images.userImage,
+        "urlToImage": images.userimage,
         "imageStatus": "Uploaded",
         "IDCardStatus": "Uploaded",
         "PassportStatus": "Uploaded",
@@ -344,9 +341,9 @@ export const UserData = [
         "backgroundCheckStatus": "Pending",
         "approvalStatus": "pending",
         "description": "Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes. Discover millions of gigs and get in touch with gig hirers as seamless as it comes.",
-        "rating": "5",
-        "assurance": "19",
-        "urlToImage": images.userImage,
+        "rating": "4",
+        "assurance": "2",
+        "urlToImage": images.userimage,
         "imageStatus": "Uploaded",
         "IDCardStatus": "Uploaded",
         "PassportStatus": "Uploaded",

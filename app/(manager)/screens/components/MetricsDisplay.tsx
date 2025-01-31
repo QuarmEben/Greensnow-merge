@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text } from "react-native";
-import { MetricDisplayProps } from "../(tabs)/types";
+import { MetricDisplayProps } from "./types";
 
 import tw from "twrnc";
 

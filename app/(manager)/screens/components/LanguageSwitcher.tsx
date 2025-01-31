@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import { LanguageDropdownProps, LanguageSwitcherProps } from "../(tabs)/types";
-import { LanguageIconProps } from "../(tabs)/types";
+import { LanguageDropdownProps, LanguageSwitcherProps } from "./types";
+import { LanguageIconProps } from "./types";
 import tw from "twrnc";
 import { images } from "@/assets/images";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import MapView from 'react-native-maps';
 import { View, Text, Image } from "react-native";
-import type { LocationProps } from "../(tabs)/types";
+import type { LocationProps } from "./types";
 import tw from 'twrnc';
 
 export function LocationDisplay({ address, mapImageUrl }: LocationProps) {

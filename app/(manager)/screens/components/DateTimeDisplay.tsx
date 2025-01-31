@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Image, Text } from "react-native";
 
 import tw from "twrnc";
-import { DateTimeProps } from "../(tabs)/types";
+import { DateTimeProps } from "./types";
 import { images } from "@/assets/images";
 
 
